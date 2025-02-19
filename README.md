@@ -27,7 +27,41 @@ The dataset used for this project can be found on Kaggle: [Heart Disease Dataset
     - **F1-Score**: The harmonic mean of precision and recall, offering a balanced metric.
     - **Support**: The number of actual occurrences of each class in the dataset.
 
-### **3. Future Steps**
-- Experiment with different classification algorithms such as **Logistic Regression**, **Decision Trees**, and **Random Forests**.
-- Explore hyperparameter tuning for the KNN model to optimize performance.
-- Perform further evaluation with additional metrics or techniques (e.g., cross-validation) to improve model reliability.
+### **3. Advanced Techniques and Findings**
+- **Normalization and Standardization**:
+    - **Normalization (Min-Max Scaling)** decreased model accuracy. This may be because absolute values in medical datasets carry clinical meaning. Normalizing these values could remove critical scale differences.
+    - **Standardization** also reduced accuracy. Some features (e.g., cholesterol) are more informative. By standardizing, these informative features were downplayed, reducing model effectiveness.
+    - **Decision**: Avoid using normalization or standardization to retain important feature scales.
+    
+- **Feature Selection**:
+    - Applied a **correlation matrix** to identify redundant features.
+    - All features had similar correlations with the target variable, so **no columns were dropped**.
+    
+- **Grid Search Cross-Validation (GridSearchCV)**:
+    - Optimized the KNN model by systematically testing different hyperparameters.
+    
+    - **Parameters Tuned**:
+      - `n_neighbors` (number of neighbors)
+      - `p` (distance metric: Manhattan or Euclidean)
+      - `weights` (uniform vs. distance-based weighting)
+    
+    - **Best Parameters Found**:
+      - `n_neighbors=21`, `p=1`, `weights='distance'`
+    
+    - **Performance**:
+      - Improved **F1-Score: 0.73** (better balance between precision and recall).
+    
+    - **Outcome**: This improved model accuracy and ensured better generalization across datasets.
+
+### **4. Future Steps**
+- Experiment with other classification algorithms like **Logistic Regression**, **Decision Trees**, and **Random Forests**.
+- Implement additional hyperparameter tuning and advanced feature engineering.
+- Explore techniques like **SMOTE** to handle class imbalance (if present).
+- Evaluate performance using more robust validation strategies such as **Stratified K-Folds**.
+"""
+
+# Save the content to a README.md file
+with open("README.md", "w") as f:
+    f.write(readme_content)
+
+"README.md has been successfully created!"
