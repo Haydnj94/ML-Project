@@ -12,20 +12,20 @@ The dataset used for this project can be found on Kaggle: [Heart Disease Dataset
 
 - **Target Variable**: `target` (1 for heart disease, 0 for no heart disease)
 - **Features**:
-	•	age: Patient’s age in years
-	•	sex: Patient’s gender (1 = male, 0 = female)
-	•	chest_pain_type: Type of chest pain experienced (e.g., typical angina, atypical angina)
-	•	resting_blood_pressure: Resting blood pressure (in mm Hg)
-	•	serum_cholesterol: Serum cholesterol level (in mg/dl)
-	•	fasting_blood_sugar: Fasting blood sugar (>120 mg/dl, 1 = true, 0 = false)
-	•	resting_ecg_result: Resting electrocardiographic results (e.g., normal, abnormal)
-	•	max_heart_rate_achieved: Maximum heart rate achieved during exercise
-	•	exercise_induced_angina: Exercise-induced chest pain (1 = yes, 0 = no)
-	•	st_depression_exercise_vs_rest: ST depression induced by exercise relative to rest
-	•	slope_peak_exercise_st_segment: Slope of the peak exercise ST segment (e.g., upsloping, flat)
-	•	num_major_vessels_colored_by_fluoro: Number of major vessels colored by fluoroscopy (0-3)
-	•	thalassemia_blood_disorder: Type of thalassemia (e.g., normal, fixed defect)
-	•	target: Presence of heart disease (1 = disease, 0 = no disease)
+	- age: Patient’s age in years
+	- sex: Patient’s gender (1 = male, 0 = female)
+  	- chest_pain_type: Type of chest pain experienced (e.g., typical angina, atypical angina)
+  	- resting_blood_pressure: Resting blood pressure (in mm Hg)
+  	- serum_cholesterol: Serum cholesterol level (in mg/dl)
+  	- fasting_blood_sugar: Fasting blood sugar (>120 mg/dl, 1 = true, 0 = false)
+  	- resting_ecg_result: Resting electrocardiographic results (e.g., normal, abnormal)
+  	- max_heart_rate_achieved: Maximum heart rate achieved during exercise
+  	- exercise_induced_angina: Exercise-induced chest pain (1 = yes, 0 = no)
+  	- st_depression_exercise_vs_rest: ST depression induced by exercise relative to rest
+  	- slope_peak_exercise_st_segment: Slope of the peak exercise ST segment (e.g., upsloping, flat)
+  	- num_major_vessels_colored_by_fluoro: Number of major vessels colored by fluoroscopy (0-3)
+  	- thalassemia_blood_disorder: Type of thalassemia (e.g., normal, fixed defect)
+  	- target: Presence of heart disease (1 = disease, 0 = no disease)
 - **Usability Rating**: 10/10 (The dataset is clean, well-structured, and easy to work with.)
 
 ## **Dependencies**
