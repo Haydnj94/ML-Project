@@ -68,17 +68,6 @@ Several models were explored and evaluated, with a focus on maximizing recall du
     - Accuracy: 0.8026
     - Precision: 0.8250
     - Recall: 0.8049
-- **Hyperparameter Tuning (GridSearchCV)**:  
-  GridSearchCV was used to optimize the following hyperparameters for the **Decision Tree** model:
-    - `max_depth` (maximum depth of the tree)
-    - `min_samples_split` (minimum number of samples required to split a node)
-    - `min_samples_leaf` (minimum number of samples required at a leaf node)
-    - `max_features` (maximum number of features to consider for each split)
-- **Best Parameters**:
-    - `max_depth=10`
-    - `min_samples_split=2`
-    - `min_samples_leaf=4`
-    - `max_features='sqrt'`
 
 #### **Random Forest**
 
