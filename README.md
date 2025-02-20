@@ -12,6 +12,25 @@ The dataset used for this project can be found on Kaggle: [Heart Disease Dataset
 - **Features**: Various numerical attributes including age, cholesterol levels, blood pressure, etc.
 - **Usability Rating**: 10/10 (The dataset is clean, well-structured, and easy to work with.)
 
+## **Dependencies**
+
+The following Python libraries are required to run the code in this project:
+
+- `pandas`: For data manipulation and analysis.
+- `numpy`: For numerical computing.
+- `scikit-learn` (specifically):
+    - `train_test_split`: For splitting data into training and testing sets.
+    - `KNeighborsClassifier`: For the K-Nearest Neighbors classification model.
+    - `KNeighborsRegressor`: (While imported, it's not actually used in this classification project, consider removing it).
+    - `GridSearchCV`: For hyperparameter tuning.
+    - `DecisionTreeClassifier`: For the Decision Tree classification model.
+    - `RandomForestClassifier`: For the Random Forest classification model.
+    - `accuracy_score`, `precision_score`, `recall_score`: For model evaluation metrics.
+    - `StandardScaler`, `MinMaxScaler`: For feature scaling (StandardScaler is used).
+    - `export_text`, `plot_tree`: For visualizing the decision tree (though not used in the final model selection).
+- `seaborn`: For data visualization (specifically the correlation matrix).
+- `matplotlib`: For plotting (though not extensively used in the final model selection).
+
 ## **Steps Taken**
 
 ### **1. Data Preparation**
