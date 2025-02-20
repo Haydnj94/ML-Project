@@ -108,9 +108,9 @@ Several models were explored and evaluated, with a focus on maximizing recall du
 
 After performing **GridSearchCV** with the optimized hyperparameters, the model achieved the following performance metrics:
 
-    - **Accuracy**: 0.8421  
-    - **Precision**: 0.8222  
-    - **Recall**: 0.9024  
+	- **Accuracy**: 0.8421  
+	- **Precision**: 0.8222  
+	- **Recall**: 0.9024  
 
 ### **3. Conclusion**
 
