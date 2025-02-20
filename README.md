@@ -1,4 +1,6 @@
-# Heart Disease Prediction - Machine Learning Project
+# Creating the updated README content as a string
+updated_readme_content = """
+# **Heart Disease Prediction - Machine Learning Project**
 
 ## **Project Overview**
 
@@ -61,12 +63,22 @@ Several models were explored and evaluated, with a focus on maximizing recall du
 
 #### **Decision Tree**
 
-- **Initial Model**: A decision tree model was trained and evaluated.
+- **Model**: A decision tree model was trained to address potential overfitting in previous models.
 - **Performance**:
     - Accuracy: 0.8026
     - Precision: 0.8250
     - Recall: 0.8049
-- **Observation**: The decision tree showed signs of high variance, suggesting potential overfitting.
+- **Hyperparameter Tuning (GridSearchCV)**:  
+  GridSearchCV was used to optimize the following hyperparameters for the **Decision Tree** model:
+    - `max_depth` (maximum depth of the tree)
+    - `min_samples_split` (minimum number of samples required to split a node)
+    - `min_samples_leaf` (minimum number of samples required at a leaf node)
+    - `max_features` (maximum number of features to consider for each split)
+- **Best Parameters**:
+    - `max_depth=10`
+    - `min_samples_split=2`
+    - `min_samples_leaf=4`
+    - `max_features='sqrt'`
 
 #### **Random Forest**
 
@@ -75,9 +87,8 @@ Several models were explored and evaluated, with a focus on maximizing recall du
     - Accuracy: 0.8158
     - Precision: 0.8140
     - Recall: 0.8537
-- **Hyperparameter Tuning (GridSearchCV)**
-
-GridSearchCV was used to optimize the following hyperparameters for the **Random Forest** model:
+- **Hyperparameter Tuning (GridSearchCV)**:  
+  GridSearchCV was used to optimize the following hyperparameters for the **Random Forest** model:
     - **`max_depth`**: Maximum depth of trees  
     - **`max_features`**: Number of features to consider at each split  
     - **`min_samples_leaf`**: Minimum samples required at a leaf node  
