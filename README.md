@@ -1,11 +1,13 @@
 # Heart Disease Prediction - Machine Learning Project
 
 ## **Project Overview**
+
 This project involves building a machine learning model to predict the presence of heart disease based on a set of health-related features. The dataset contains numerical features, and the target variable is binary (1 for heart disease, 0 for no heart disease). The goal is to create a model that can accurately predict whether a patient has heart disease.
 
 The dataset used for this project can be found on Kaggle: [Heart Disease Dataset](https://www.kaggle.com/datasets/yasserh/heart-disease-dataset/data).
 
 ## **Dataset Description**
+
 - **Target Variable**: `target` (1 for heart disease, 0 for no heart disease)
 - **Features**: Various numerical attributes including age, cholesterol levels, blood pressure, etc.
 - **Usability Rating**: 10/10 (The dataset is clean, well-structured, and easy to work with.)
@@ -13,47 +15,52 @@ The dataset used for this project can be found on Kaggle: [Heart Disease Dataset
 ## **Steps Taken**
 
 ### **1. Data Preparation**
+
 - **Data Loading**: The dataset was loaded into a Jupyter notebook for analysis.
 - **Data Cleaning**: Column names were cleaned by renaming them to more readable and understandable formats, replacing abbreviations with full names.
 - **Missing Data Check**: Checked the dataset for any missing values. There were no null values found, so no data imputation was required.
 - **Feature Selection**: Examined the data types of the columns to determine which were suitable for the machine learning model. The target variable (`target`) was separated from the feature variables. Features were selected as all columns except `target`.
 
-### **2. Model Development**
-- **K-Nearest Neighbors (KNN) Model**: Used the **K-Nearest Neighbors (KNN)** classification algorithm to predict the target variable.
-- **Model Evaluation**: Evaluated the model using several key metrics:
-    - **Accuracy**: To assess overall model performance.
-    - **Recall**: To measure the model's ability to correctly identify instances of heart disease.
-    - **Precision**: To measure the model's ability to avoid false positives.
-    - **F1-Score**: The harmonic mean of precision and recall, offering a balanced metric.
-    - **Support**: The number of actual occurrences of each class in the dataset.
+### **2. Model Development and Evaluation**
 
-### **3. Advanced Techniques and Findings**
+Several models were explored and evaluated, with a focus on maximizing recall due to the importance of minimizing false negatives in a medical context.
 
-#### **Standardization Improved Model Performance**
-- **Standardization (Z-Score Scaling)**: Improved model accuracy and reduced the impact of feature magnitudes.
-    - Initially, the KNN model achieved an accuracy of **0.7368**.
-    - After **standardization**, accuracy improved to **0.8553**.
-- **Decision**: We proceeded with **standardization** as it significantly improved model performance.
+#### **K-Nearest Neighbors (KNN)**
 
-#### **Feature Selection**
-- Applied a **correlation matrix** to identify redundant features.
-- All features had similar correlations with the target variable, so **no columns were dropped**.
+- **Initial Model**:  A KNN model was initially trained and achieved an accuracy of 0.7368.
+- **Standardization**: Feature standardization (Z-score scaling) significantly improved performance, boosting accuracy to 0.8553. This step was crucial for KNN due to its sensitivity to feature scales.
+- **Hyperparameter Tuning (GridSearchCV)**:  GridSearchCV was used to optimize the following hyperparameters:
+    - `n_neighbors` (number of neighbors)
+    - `p` (distance metric: Manhattan or Euclidean)
+    - `weights` (uniform vs. distance-based weighting)
+- **Best Parameters**: `n_neighbors=21`, `p=1` (Manhattan distance), `weights='uniform'`
+- **Best KNN Performance**:
+    - Accuracy: 0.8684
+    - Precision: 0.8444
+    - Recall: 0.9268
+    - F1-Score: 0.8833 (calculated for completeness)
 
-#### **Grid Search Cross-Validation (GridSearchCV)**
-- Optimized the KNN model by systematically testing different hyperparameters.
+#### **Decision Tree**
 
-    **Parameters Tuned**:
-  - `n_neighbors` (number of neighbors)
-  - `p` (distance metric: Manhattan or Euclidean)
-  - `weights` (uniform vs. distance-based weighting)
+- **Initial Model**: A decision tree model was trained and evaluated.
+- **Performance**:
+    - Accuracy: 0.8026
+    - Precision: 0.8250
+    - Recall: 0.8049
+- **Observation**: The decision tree showed signs of high variance, suggesting potential overfitting.
 
-    **Best Parameters Found**:
-  - `n_neighbors=21`
-  - `p=1` (Manhattan distance)
-  - `weights='uniform'`
+#### **Random Forest**
 
-    **Performance**:
-  - **Best F1-Score**: 0.8593
-  - **Outcome**: This slightly improved accuracy while **reducing precision** but **increased recall by nearly 10%**.
-  
-In this medical context, **recall is more important** because it reduces **false negatives**, meaning fewer cases of heart disease are missed.
+- **Model**: A random forest model was trained to address the potential overfitting of the decision tree.
+- **Performance**:
+    - Accuracy: 0.8158
+    - Precision: 0.8140
+    - Recall: 0.8537
+- **Hyperparameter Tuning**:  Further tuning of the Random Forest resulted in:
+    - Accuracy: 0.8421
+    - Precision: 0.8222
+    - Recall: 0.9024
+
+### **3. Conclusion**
+
+While the Random Forest showed improvement over the single Decision Tree, the K-Nearest Neighbors model, after standardization and hyperparameter tuning, ultimately delivered the best performance, especially in terms of recall, which is the most critical metric for this project.  Therefore, the KNN model was selected as the final model for heart disease prediction.
