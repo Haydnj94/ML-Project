@@ -75,31 +75,27 @@ Several models were explored and evaluated, with a focus on maximizing recall du
     - Accuracy: 0.8158
     - Precision: 0.8140
     - Recall: 0.8537
-    - 
-## **Hyperparameter Tuning (GridSearchCV)**
+- **Hyperparameter Tuning (GridSearchCV)**
 
 GridSearchCV was used to optimize the following hyperparameters for the **Random Forest** model:
+    - **`max_depth`**: Maximum depth of trees  
+    - **`max_features`**: Number of features to consider at each split  
+    - **`min_samples_leaf`**: Minimum samples required at a leaf node  
+    - **`min_samples_split`**: Minimum samples required to split an internal node  
+    - **`n_estimators`**: Number of trees in the forest  
+- **Best Parameters**:
+    - `max_depth=10`
+    - `max_features='sqrt'`
+    - `min_samples_leaf=4`
+    - `min_samples_split=2`
+    - `n_estimators=300`
 
-- **`max_depth`**: Maximum depth of trees  
-- **`max_features`**: Number of features to consider at each split  
-- **`min_samples_leaf`**: Minimum samples required at a leaf node  
-- **`min_samples_split`**: Minimum samples required to split an internal node  
-- **`n_estimators`**: Number of trees in the forest  
-
-### **Best Parameters**:
-- `max_depth=10`
-- `max_features='sqrt'`
-- `min_samples_leaf=4`
-- `min_samples_split=2`
-- `n_estimators=300`
-
-## **Best Random Forest Performance**
+- **Best Random Forest Performance**
 
 After performing **GridSearchCV** with the optimized hyperparameters, the model achieved the following performance metrics:
-
-- **Accuracy**: 0.8421  
-- **Precision**: 0.8222  
-- **Recall**: 0.9024  
+    - **Accuracy**: 0.8421  
+    - **Precision**: 0.8222  
+    - **Recall**: 0.9024  
 
 ### **3. Conclusion**
 
