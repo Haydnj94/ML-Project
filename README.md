@@ -28,33 +28,32 @@ The dataset used for this project can be found on Kaggle: [Heart Disease Dataset
     - **Support**: The number of actual occurrences of each class in the dataset.
 
 ### **3. Advanced Techniques and Findings**
-- **Normalization and Standardization**:
-    - **Normalization (Min-Max Scaling)** decreased model accuracy. This may be because absolute values in medical datasets carry clinical meaning. Normalizing these values could remove critical scale differences.
-    - **Standardization** also reduced accuracy. Some features (e.g., cholesterol) are more informative. By standardizing, these informative features were downplayed, reducing model effectiveness.
-    - **Decision**: Avoid using normalization or standardization to retain important feature scales.
-    
-- **Feature Selection**:
-    - Applied a **correlation matrix** to identify redundant features.
-    - All features had similar correlations with the target variable, so **no columns were dropped**.
-    
-- **Grid Search Cross-Validation (GridSearchCV)**:
-    - Optimized the KNN model by systematically testing different hyperparameters.
-    
-    - **Parameters Tuned**:
-      - `n_neighbors` (number of neighbors)
-      - `p` (distance metric: Manhattan or Euclidean)
-      - `weights` (uniform vs. distance-based weighting)
-    
-    - **Best Parameters Found**:
-      - `n_neighbors=21`, `p=1`, `weights='distance'`
-    
-    - **Performance**:
-      - Improved **F1-Score: 0.73** (better balance between precision and recall).
-    
-    - **Outcome**: This improved model accuracy and ensured better generalization across datasets.
 
-### **4. Future Steps**
-- Experiment with other classification algorithms like **Logistic Regression**, **Decision Trees**, and **Random Forests**.
-- Implement additional hyperparameter tuning and advanced feature engineering.
-- Explore techniques like **SMOTE** to handle class imbalance (if present).
-- Evaluate performance using more robust validation strategies such as **Stratified K-Folds**.
+#### **Standardization Improved Model Performance**
+- **Standardization (Z-Score Scaling)**: Improved model accuracy and reduced the impact of feature magnitudes.
+    - Initially, the KNN model achieved an accuracy of **0.7368**.
+    - After **standardization**, accuracy improved to **0.8553**.
+- **Decision**: We proceeded with **standardization** as it significantly improved model performance.
+
+#### **Feature Selection**
+- Applied a **correlation matrix** to identify redundant features.
+- All features had similar correlations with the target variable, so **no columns were dropped**.
+
+#### **Grid Search Cross-Validation (GridSearchCV)**
+- Optimized the KNN model by systematically testing different hyperparameters.
+
+    **Parameters Tuned**:
+  - `n_neighbors` (number of neighbors)
+  - `p` (distance metric: Manhattan or Euclidean)
+  - `weights` (uniform vs. distance-based weighting)
+
+    **Best Parameters Found**:
+  - `n_neighbors=21`
+  - `p=1` (Manhattan distance)
+  - `weights='uniform'`
+
+    **Performance**:
+  - **Best F1-Score**: 0.8593
+  - **Outcome**: This slightly improved accuracy while **reducing precision** but **increased recall by nearly 10%**.
+  
+In this medical context, **recall is more important** because it reduces **false negatives**, meaning fewer cases of heart disease are missed.
