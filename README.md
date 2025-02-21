@@ -1,6 +1,5 @@
-# Creating the updated README content as a string
-updated_readme_content = """
 # **Heart Disease Prediction - Machine Learning Project**
+https://www.canva.com/design/DAGfpdRnaf4/dOutvtuhLfHC0Y8OzX2VWQ/edit?utm_content=DAGfpdRnaf4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## **Project Overview**
 
